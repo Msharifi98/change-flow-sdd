@@ -67,6 +67,19 @@
 
 **Status**: **PASS** — The spec explicitly prohibits self-approval (FR-007). This is enforced at the Service layer.
 
+
+### Constitution Adaptation Note
+
+**Principle II (CLI Interface)**: The constitution states "Every library exposes functionality via CLI; Text in/out protocol: stdin/args ? stdout, errors ? stderr". 
+
+**Adaptation**: This feature is implemented as an HTTP API (Node.js + Express) rather than a CLI. This is a deliberate adaptation because:
+1. The original scenario specifies an HTTP API requirement, not a CLI tool.
+2. The JSON in/out protocol principle is preserved via HTTP JSON endpoints.
+3. The text in/out protocol principle is preserved via HTTP request/response bodies.
+4. All other constitution principles (Library-First, Test-First, Integration Testing, Observability, Self-Approval) are fully compliant.
+
+This adaptation is documented here for governance traceability. The CLI Interface principle's intent (exposable interface with clear in/out protocol) is preserved through HTTP JSON API contracts.
+
 ## Project Structure
 
 ### Documentation (this feature)

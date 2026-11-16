@@ -1,0 +1,61 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        String   @id @default(cuid())
+  username  String   @unique
+  role      UserRole
+  createdAt DateTime @default(now())
+}
+
+enum UserRole {
+  REQUESTER
+  REVIEWER
+}
+
+model ChangeRequest {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  reason      String
+  requesterId String
+  status      RequestStatus @default(DRAFT)
+  version     Int        @default(1)
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  requester   User       @relation(fields: [requesterId], references: [id])
+  reviews     Review[]   @relation("reviews", forDelete: cascade)
+}
+
+enum RequestStatus {
+  DRAFT
+  PENDING_REVIEW
+  APPROVED
+  CHANGES_REQUESTED
+}
+
+model Review {
+  id            String   @id @default(cuid())
+  changeRequestId String
+  reviewerId    String
+  decision      ReviewDecision
+  comments      String?
+  createdAt     DateTime @default(now())
+
+  changeRequest ChangeRequest @relation(fields: [changeRequestId], references: [id])
+  reviewer      User          @relation(fields: [reviewerId], references: [id])
+
+  @@unique([changeRequestId, reviewerId])
+}
+
+enum ReviewDecision {
+  APPROVE
+  REQUEST_CHANGES
+}
