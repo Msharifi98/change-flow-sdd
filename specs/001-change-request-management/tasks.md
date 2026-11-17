@@ -25,11 +25,11 @@
 
 **Purpose**: Project initialization and basic structure
 
-- [ ] T001 Create project structure per implementation plan in src/, 	ests/, prisma/
-- [ ] T002 Initialize Node.js project with TypeScript and Express dependencies in ./package.json
-- [ ] T003 [P] Configure Prisma ORM with SQLite in prisma/schema.prisma
-- [ ] T004 [P] Configure linting (ESLint) and formatting (Prettier) tools in ./.eslintrc.js, ./.prettierrc
-- [ ] T005 [P] Configure Jest and Supertest testing framework in ./jest.config.js
+- [x] T001 Create project structure per implementation plan in src/, 	ests/, prisma/
+- [x] T002 Initialize Node.js project with TypeScript and Express dependencies in ./package.json
+- [x] T003 [P] Configure Prisma ORM with SQLite in prisma/schema.prisma
+- [x] T004 [P] Configure linting (ESLint) and formatting (Prettier) tools in ./.eslintrc.js, ./.prettierrc
+- [x] T005 [P] Configure Jest and Supertest testing framework in ./jest.config.js
 
 ---
 
@@ -39,12 +39,12 @@
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T006 Setup database schema and migrations with Prisma in prisma/schema.prisma (User, ChangeRequest, Review entities)  [FR-010]  [SC-005]
-- [ ] T007 [P] Implement authentication middleware in src/middleware/auth.middleware.ts (X-User-Id header validation)  [FR-009]
-- [ ] T008 [P] Setup API routing and middleware structure in src/routes/index.ts, src/middleware/
-- [ ] T009 [P] Create base models/entities that all stories depend on in src/models/ChangeRequest.ts, src/models/User.ts, src/models/Review.ts
-- [ ] T010 [P] Configure error handling and logging infrastructure in src/errors/AppError.ts, src/config/logger.ts
-- [ ] T011 [P] Setup environment configuration management in src/config/database.ts (Prisma client)
+- [x] T006 Setup database schema and migrations with Prisma in prisma/schema.prisma (User, ChangeRequest, Review entities)  [FR-010]  [SC-005]
+- [x] T007 [P] Implement authentication middleware in src/middleware/auth.middleware.ts (X-User-Id header validation)  [FR-009]
+- [x] T008 [P] Setup API routing and middleware structure in src/routes/index.ts, src/middleware/
+- [x] T009 [P] Create base models/entities that all stories depend on in src/models/ChangeRequest.ts, src/models/User.ts, src/models/Review.ts
+- [x] T010 [P] Configure error handling and logging infrastructure in src/errors/AppError.ts, src/config/logger.ts
+- [x] T011 [P] Setup environment configuration management in src/config/database.ts (Prisma client)
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
@@ -58,20 +58,20 @@
 
 ### Tests for User Story 1 (OPTIONAL - only if tests requested)
 
-- [ ] T012 [P] [US1] Contract test for POST /api/requests in 	ests/contract/test-requests.contract.test.ts  [SC-001]
-- [ ] T013 [P] [US1] Integration test for create request flow in 	ests/integration/test-requests.integration.test.ts  [SC-001]
+- [x] T012 [P] [US1] Contract test for POST /api/requests in 	ests/contract/test-requests.contract.test.ts  [SC-001]
+- [x] T013 [P] [US1] Integration test for create request flow in 	ests/integration/test-requests.integration.test.ts  [SC-001]
 
 ### Implementation for User Story 1
 
-- [ ] T014 [P] [US1] Create ChangeRequest model in src/models/ChangeRequest.ts (fields: id, title, description, reason, requesterId, status, version, createdAt, updatedAt)  [FR-001]
-- [ ] T015 [P] [US1] Create User model in src/models/User.ts (fields: id, username, role, createdAt)  [FR-001]
-- [ ] T016 [P] [US1] Create Review model in src/models/Review.ts (fields: id, changeRequestId, reviewerId, decision, comments, createdAt)  [FR-001]
-- [ ] T017 [US1] Implement RequestService in src/services/request.service.ts (depends on T014, T015, T016) - create request method with validation  [FR-001, FR-002, FR-009]  [SC-001]
-- [ ] T018 [US1] Implement RequestController in src/controllers/request.controller.ts - POST /api/requests endpoint  [FR-001, FR-002]  [SC-001]
-- [ ] T019 [US1] Create CreateRequestDTO in src/dtos/CreateRequestDTO.ts with validation rules (title, description, reason required)  [FR-001]
-- [ ] T020 [US1] Register POST /api/requests route in src/routes/requests.ts  [FR-001, FR-002]
-- [ ] T021 [US1] Add error handling for validation failures (400 Bad Request) and missing auth (401 Unauthorized) in src/errors/AppError.ts  [FR-001]
-- [ ] T022 [US1] Add logging for request creation operations in src/config/logger.ts  [FR-001]
+- [x] T014 [P] [US1] Create ChangeRequest model in src/models/ChangeRequest.ts (fields: id, title, description, reason, requesterId, status, version, createdAt, updatedAt)  [FR-001]
+- [x] T015 [P] [US1] Create User model in src/models/User.ts (fields: id, username, role, createdAt)  [FR-001]
+- [x] T016 [P] [US1] Create Review model in src/models/Review.ts (fields: id, changeRequestId, reviewerId, decision, comments, createdAt)  [FR-001]
+- [x] T017 [US1] Implement RequestService in src/services/request.service.ts (depends on T014, T015, T016) - create request method with validation  [FR-001, FR-002, FR-009]  [SC-001]
+- [x] T018 [US1] Implement RequestController in src/controllers/request.controller.ts - POST /api/requests endpoint  [FR-001, FR-002]  [SC-001]
+- [x] T019 [US1] Create CreateRequestDTO in src/dtos/CreateRequestDTO.ts with validation rules (title, description, reason required)  [FR-001]
+- [x] T020 [US1] Register POST /api/requests route in src/routes/requests.ts  [FR-001, FR-002]
+- [x] T021 [US1] Add error handling for validation failures (400 Bad Request) and missing auth (401 Unauthorized) in src/errors/AppError.ts  [FR-001]
+- [x] T022 [US1] Add logging for request creation operations in src/config/logger.ts  [FR-001]
 
 **Checkpoint**: At this point, User Story 1 should be fully functional and testable independently
 
@@ -85,17 +85,17 @@
 
 ### Tests for User Story 2 (OPTIONAL - only if tests requested)
 
-- [ ] T023 [P] [US2] Contract test for POST /api/requests/:id/submit in 	ests/contract/test-requests.contract.test.ts
-- [ ] T024 [P] [US2] Integration test for submit request flow in 	ests/integration/test-requests.integration.test.ts
+- [x] T023 [P] [US2] Contract test for POST /api/requests/:id/submit in 	ests/contract/test-requests.contract.test.ts
+- [x] T024 [P] [US2] Integration test for submit request flow in 	ests/integration/test-requests.integration.test.ts
 
 ### Implementation for User Story 2
 
-- [ ] T025 [P] [US2] Add submitRequest method to RequestService in src/services/request.service.ts (depends on T017) - validates requester ownership and DRAFT status  [FR-003, FR-006]  [SC-004]
-- [ ] T026 [US2] Add submit endpoint to RequestController in src/controllers/request.controller.ts - POST /api/requests/:id/submit  [FR-003, FR-006]  [SC-004]
-- [ ] T027 [US2] Create SubmitRequestDTO in src/dtos/SubmitRequestDTO.ts (no body needed, just params)  [FR-003]
-- [ ] T028 [US2] Register POST /api/requests/:id/submit route in src/routes/requests.ts  [FR-003, FR-006]
-- [ ] T029 [US2] Add validation: request must be in DRAFT status (400 Bad Request if not) in src/services/request.service.ts  [FR-003]
-- [ ] T030 [US2] Add authorization check: only requester can submit (403 Forbidden if not) in src/services/request.service.ts  [FR-003]
+- [x] T025 [P] [US2] Add submitRequest method to RequestService in src/services/request.service.ts (depends on T017) - validates requester ownership and DRAFT status  [FR-003, FR-006]  [SC-004]
+- [x] T026 [US2] Add submit endpoint to RequestController in src/controllers/request.controller.ts - POST /api/requests/:id/submit  [FR-003, FR-006]  [SC-004]
+- [x] T027 [US2] Create SubmitRequestDTO in src/dtos/SubmitRequestDTO.ts (no body needed, just params)  [FR-003]
+- [x] T028 [US2] Register POST /api/requests/:id/submit route in src/routes/requests.ts  [FR-003, FR-006]
+- [x] T029 [US2] Add validation: request must be in DRAFT status (400 Bad Request if not) in src/services/request.service.ts  [FR-003]
+- [x] T030 [US2] Add authorization check: only requester can submit (403 Forbidden if not) in src/services/request.service.ts  [FR-003]
 
 **Checkpoint**: At this point, User Stories 1 AND 2 should both work independently
 
@@ -109,19 +109,19 @@
 
 ### Tests for User Story 3 (OPTIONAL - only if tests requested)
 
-- [ ] T031 [P] [US3] Contract test for POST /api/requests/:id/review in 	ests/contract/test-requests.contract.test.ts
-- [ ] T032 [P] [US3] Integration test for review flow (approve and request-changes) in 	ests/integration/test-requests.integration.test.ts
+- [x] T031 [P] [US3] Contract test for POST /api/requests/:id/review in 	ests/contract/test-requests.contract.test.ts
+- [x] T032 [P] [US3] Integration test for review flow (approve and request-changes) in 	ests/integration/test-requests.integration.test.ts
 
 ### Implementation for User Story 3
 
-- [ ] T033 [P] [US3] Add reviewRequest method to RequestService in src/services/request.service.ts (depends on T017) - validates self-approval prevention, role-based access, and status transitions  [FR-004, FR-005, FR-008, FR-009]
-- [ ] T034 [US3] Add review endpoint to RequestController in src/controllers/request.controller.ts - POST /api/requests/:id/review  [FR-004, FR-005, FR-008]
-- [ ] T035 [US3] Create ReviewRequestDTO in src/dtos/ReviewRequestDTO.ts with validation (decision: APPROVE or REQUEST_CHANGES, comments required for REQUEST_CHANGES)  [FR-004, FR-005]
-- [ ] T036 [US3] Register POST /api/requests/:id/review route in src/routes/requests.ts  [FR-004, FR-005]
-- [ ] T037 [US3] Add self-approval prevention: if reviewerId == requesterId, return 403 Forbidden in src/services/request.service.ts  [FR-007]  [SC-002, SC-003]
-- [ ] T038 [US3] Add role-based access: only users with REVIEWER role can review (403 Forbidden otherwise) in src/services/request.service.ts  [FR-007]  [SC-002]
-- [ ] T039 [US3] Add validation: REQUEST_CHANGES requires comments (400 Bad Request if missing) in src/services/request.service.ts  [FR-005]
-- [ ] T040 [US3] Add status transition validation: only PENDING_REVIEW can be reviewed (400 Bad Request otherwise) in src/services/request.service.ts  [FR-010, FR-004]  [SC-004, SC-005]
+- [x] T033 [P] [US3] Add reviewRequest method to RequestService in src/services/request.service.ts (depends on T017) - validates self-approval prevention, role-based access, and status transitions  [FR-004, FR-005, FR-008, FR-009]
+- [x] T034 [US3] Add review endpoint to RequestController in src/controllers/request.controller.ts - POST /api/requests/:id/review  [FR-004, FR-005, FR-008]
+- [x] T035 [US3] Create ReviewRequestDTO in src/dtos/ReviewRequestDTO.ts with validation (decision: APPROVE or REQUEST_CHANGES, comments required for REQUEST_CHANGES)  [FR-004, FR-005]
+- [x] T036 [US3] Register POST /api/requests/:id/review route in src/routes/requests.ts  [FR-004, FR-005]
+- [x] T037 [US3] Add self-approval prevention: if reviewerId == requesterId, return 403 Forbidden in src/services/request.service.ts  [FR-007]  [SC-002, SC-003]
+- [x] T038 [US3] Add role-based access: only users with REVIEWER role can review (403 Forbidden otherwise) in src/services/request.service.ts  [FR-007]  [SC-002]
+- [x] T039 [US3] Add validation: REQUEST_CHANGES requires comments (400 Bad Request if missing) in src/services/request.service.ts  [FR-005]
+- [x] T040 [US3] Add status transition validation: only PENDING_REVIEW can be reviewed (400 Bad Request otherwise) in src/services/request.service.ts  [FR-010, FR-004]  [SC-004, SC-005]
 
 **Checkpoint**: All user stories should now be independently functional
 
@@ -135,12 +135,12 @@
 
 ### Implementation for Phase 6
 
-- [ ] T041 [P] Add getRequest method to RequestService in src/services/request.service.ts  [FR-001]
-- [ ] T042 Add listRequests method to RequestService in src/services/request.service.ts (with optional filters)  [FR-001]
-- [ ] T043 [P] Add GET /api/requests/:id endpoint to RequestController in src/controllers/request.controller.ts  [FR-001]
-- [ ] T044 Add GET /api/requests endpoint to RequestController in src/controllers/request.controller.ts  [FR-001]
-- [ ] T045 [P] Register GET routes in src/routes/requests.ts  [FR-001]
-- [ ] T046 [P] Add response DTOs in src/dtos/ResponseDTOs.ts  [FR-001]
+- [x] T041 [P] Add getRequest method to RequestService in src/services/request.service.ts  [FR-001]
+- [x] T042 Add listRequests method to RequestService in src/services/request.service.ts (with optional filters)  [FR-001]
+- [x] T043 [P] Add GET /api/requests/:id endpoint to RequestController in src/controllers/request.controller.ts  [FR-001]
+- [x] T044 Add GET /api/requests endpoint to RequestController in src/controllers/request.controller.ts  [FR-001]
+- [x] T045 [P] Register GET routes in src/routes/requests.ts  [FR-001]
+- [x] T046 [P] Add response DTOs in src/dtos/ResponseDTOs.ts  [FR-001]
 
 ---
 
@@ -148,12 +148,12 @@
 
 **Purpose**: Improvements that affect multiple user stories
 
-- [ ] T047 [P] Documentation updates in ./README.md
-- [ ] T048 [P] Code cleanup and refactoring across all layers in src/
-- [ ] T049 [P] Performance optimization across all stories in src/
-- [ ] T050 [P] Additional unit tests in 	ests/unit/
-- [ ] T051 [P] Security hardening (input validation, rate limiting) in src/middleware/
-- [ ] T052 [P] Run quickstart.md validation scenarios (SC-001, SC-002, SC-003, SC-004, SC-005 acceptance validation) in specs/001-change-request-management/quickstart.md  [SC-001, SC-002, SC-003, SC-004, SC-005]
+- [x] T047 [P] Documentation updates in ./README.md
+- [x] T048 [P] Code cleanup and refactoring across all layers in src/
+- [x] T049 [P] Performance optimization across all stories in src/
+- [x] T050 [P] Additional unit tests in 	ests/unit/
+- [x] T051 [P] Security hardening (input validation, rate limiting) in src/middleware/
+- [x] T052 [P] Run quickstart.md validation scenarios (SC-001, SC-002, SC-003, SC-004, SC-005 acceptance validation) in specs/001-change-request-management/quickstart.md  [SC-001, SC-002, SC-003, SC-004, SC-005]
 
 ---
 
@@ -249,3 +249,10 @@ With multiple developers:
 - Commit after each task or logical group
 - Stop at any checkpoint to validate story independently
 - Avoid: vague tasks, same file conflicts, cross-story dependencies that break independence
+\n\n## Phase 8: Convergence\n\n**Purpose**: Close remaining gaps between the implemented code and the spec/plan/constitution.
+\n- [ ] T053 [HIGH] Implement UserController and POST /api/users route in src/controllers/user.controller.ts and src/routes/users.ts - required by quickstart scenarios to create users before testing [FR-009, SC-001] (missing)
+\n- [ ] T054 [HIGH] Integrate logger into application - import and use logger in controllers and services for structured logging [Constitution V] (missing)
+\n- [ ] T055 [HIGH] Fix auth middleware to look up user role from database instead of hardcoding 'REQUESTER' - role-based access control is currently broken [FR-009] (partial)
+\n- [ ] T056 [HIGH] Fix optimistic locking to catch Prisma P2011 error on version mismatch and return 409 Conflict instead of 500 [FR-010, SC-005] (partial)
+\n- [ ] T057 [MEDIUM] Add global error handling middleware in src/middleware/error.middleware.ts - centralized error handling instead of ad-hoc per-controller [plan] (partial)
+\n- [ ] T058 [MEDIUM] Add explicit guard for FR-008 - prevent any edits to APPROVED requests with clear 400 error [FR-008] (partial)

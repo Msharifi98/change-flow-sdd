@@ -1,4 +1,4 @@
-import { RequestRepository } from '../repositories/request.repository';
+﻿import { RequestRepository } from '../repositories/request.repository';
 import { ReviewRepository } from '../repositories/review.repository';
 import { UserRepository } from '../repositories/user.repository';
 import { ChangeRequest, CreateChangeRequestInput } from '../models/ChangeRequest';
@@ -38,7 +38,8 @@ export class RequestService {
       throw new AppError(ERRORS.INVALID_STATUS_TRANSITION, 400);
     }
 
-    return this.requestRepo.updateStatus(requestId, 'PENDING_REVIEW');
+    // Optimistic locking: pass current version
+    return this.requestRepo.updateStatus(requestId, 'PENDING_REVIEW', request.version);
   }
 
   async reviewRequest(
@@ -81,9 +82,9 @@ export class RequestService {
       comments,
     });
 
-    // Update request status
+    // Update request status with optimistic locking
     const newStatus = decision === 'APPROVE' ? 'APPROVED' : 'CHANGES_REQUESTED';
-    return this.requestRepo.updateStatus(requestId, newStatus);
+    return this.requestRepo.updateStatus(requestId, newStatus, request.version);
   }
 
   async resubmitRequest(requestId: string, requesterId: string): Promise<ChangeRequest> {
@@ -102,7 +103,8 @@ export class RequestService {
       throw new AppError(ERRORS.INVALID_STATUS_TRANSITION, 400);
     }
 
-    return this.requestRepo.updateStatus(requestId, 'PENDING_REVIEW');
+    // Optimistic locking: pass current version
+    return this.requestRepo.updateStatus(requestId, 'PENDING_REVIEW', request.version);
   }
 
   async getRequest(id: string): Promise<ChangeRequest | null> {
@@ -118,3 +120,5 @@ export class RequestService {
     return this.requestRepo.findAll(options);
   }
 }
+
+

@@ -1,4 +1,4 @@
-import { NextFunction, Request, Response } from 'express';
+﻿import { NextFunction, Request, Response } from 'express';
 import { AppError, ERRORS } from '../errors/AppError';
 
 export interface AuthenticatedRequest extends Request {
@@ -11,7 +11,7 @@ export interface AuthenticatedRequest extends Request {
 
 export const authenticate = (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
   const userId = req.headers['x-user-id'];
-  
+
   if (!userId) {
     return res.status(401).json({
       success: false,
@@ -24,7 +24,7 @@ export const authenticate = (req: AuthenticatedRequest, res: Response, next: Nex
   // For this mock implementation, we attach the user ID to the request
   req.user = {
     id: userId,
-    username: user-,
+    username: userId,
     role: 'REQUESTER', // Default role - would be looked up from DB
   };
 
@@ -52,3 +52,5 @@ export const authorize = (allowedRoles: string[]) => {
     next();
   };
 };
+
+
