@@ -1,1 +1,73 @@
-﻿# ChangeFlow - Change Request Management System\n\nA HTTP API for managing change requests in an internal software company. Built with Node.js, TypeScript, Express, and Prisma ORM (SQLite).\n\n## Architecture\n\nLayered architecture:\n- **Controller**: HTTP concerns (routing, validation, response)\n- **Service**: Business logic (status transitions, authorization, concurrency)\n- **Repository**: Data access (Prisma ORM)\n\n## API Endpoints\n\n| Method | Endpoint | Description |\n|--------|----------|-------------|\n| POST | /api/requests | Create a new change request (DRAFT) |\n| POST | /api/requests/:id/submit | Submit a DRAFT request for review |\n| POST | /api/requests/:id/review | Review a PENDING_REVIEW request |\n| GET | /api/requests/:id | Get request details with reviews |\n| GET | /api/requests | List requests with optional filters |\n\n## Authentication\n\nMock authentication via X-User-Id header. The header contains the user UUID.\n\n## Key Features\n\n- Create change requests with title, description, and reason\n- Submit requests for review (DRAFT → PENDING_REVIEW)\n- Review requests: approve or request changes\n- Self-approval prevention (requester cannot approve their own request)\n- Role-based access control (Requester vs Reviewer)\n- Optimistic locking for concurrency control (version column)\n- Status transition validation\n\n## Status Transitions\n\n- Draft → PendingReview (submit)\n- PendingReview → Approved (reviewer approves)\n- PendingReview → ChangesRequested (reviewer requests changes)\n- ChangesRequested → PendingReview (requester resubmits)\n- Approved: final state (not editable)\n\n## Setup\n\n`ash\nnpm install\nnpx prisma migrate dev\nnpm start\n`\n\n## Testing\n\n`ash\nnpm test\n`\n\n## Quickstart\n\nSee specs/001-change-request-management/quickstart.md for end-to-end validation scenarios.\n
+# ChangeFlow - Change Request Management System
+
+?? HTTP API ???? ?????? ??????????? ????? ?? ?? ???? ????????? ?????. ?? Node.js, TypeScript, Express, ? Prisma ORM (SQLite) ????? ??? ???.
+
+## Architecture
+
+architecture ???????:
+
+- **Controller**: ?????????? HTTP (routing, validation, response)
+
+- **Service**: ???? ???????? (??????? ?????? ????????? ????? ??????)
+
+- **Repository**: ?????? ?? ??????? (Prisma ORM)
+
+## API Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | /api/requests | Create a new change request (DRAFT) |
+| POST | /api/requests/:id/submit | Submit a DRAFT request for review |
+| POST | /api/requests/:id/review | Review a PENDING_REVIEW request |
+| GET | /api/requests/:id | Get request details with reviews |
+| GET | /api/requests | List requests with optional filters |
+
+## Authentication
+
+????? ???? simulated ?? ??? X-User-Id. ??? ??? ????? ????? ?? ?? ?? ??????? ????? ??????.
+
+## Key Features
+
+- Create change requests with title, description, and reason
+
+- Submit requests for review (DRAFT ? PENDING_REVIEW)
+
+- Review requests: approve or request changes
+
+- Self-approval prevention (requester cannot approve their own request)
+
+- Role-based access control (Requester vs Reviewer)
+
+- Optimistic locking for concurrency control (version column)
+
+- Status transition validation
+
+## Status Transitions
+
+- Draft ? PendingReview (submit)
+
+- PendingReview ? Approved (reviewer approves)
+
+- PendingReview ? ChangesRequested (reviewer requests changes)
+
+- ChangesRequested ? PendingReview (requester resubmits)
+
+- Approved: final state (not editable)
+
+## Setup
+
+ash
+npm install
+npx prisma migrate dev
+npm start
+"
+Add-Content -Path 'specs/001-change-request-management/README.md' -Value "
+Add-Content -Path 'specs/001-change-request-management/README.md' -Value 
+
+ash
+npm test
+"
+Add-Content -Path 'specs/001-change-request-management/README.md' -Value "
+Add-Content -Path 'specs/001-change-request-management/README.md' -Value 
+
+See specs/001-change-request-management/quickstart.md for end-to-end validation scenarios.
